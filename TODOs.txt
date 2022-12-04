@@ -1,0 +1,23 @@
+1. Login Page (consists of Username & Password field along with Forgot Password option, clicking on which opens the dialog box for resetting password). The credentials must be shown on Console as an object and page must be redirected to dashboard after clicking on Submit button.
+When the page is redirected to the dashboard, show a success toaster which contains the message like Welcome <userName which was entered> !, position of the toaster should be bottom right (you can use react-toastify package)
+At Dashboard, there will be sidebar consisting of buttons one below other like Home, Products, Wishlist, Clients, AboutUs, Log out 
+Home component will contain the basic overview like any business sites consisting of products with different varieties, use carousel to display the products of different kinds
+Make the product section having a drop down menu, with  categories like groceries, electronics etc. When the user clicks on the category only the products of that category will appear on the main window
+The products which is being displayed on the Home & Products page must have two buttons or dedicated Icons (1. Add to Whislist, 2. Description)
+Wishlist section contains all the products which you have added in by clicking on Add to Wishlist or its icon.
+Clients section will contain the information about the clients, you have to use API given below to fetch that data and show it (along with their images) on clients page.
+API link : https://reqres.in/api/users?page=1
+
+About Us section will consist of information about your Business websites, how is it useful, what are its future goals, its origin, its owner etc.
+
+You should give 3 icons of social media handels below the sidebar where the user can contact with the site personnels
+Remember on Clicking on various sidebar buttons, only the       right part should render and not the full page
+There can be scrolling in only the right part and not in the sidebar i.e sidebar should be fixed with no scroll.
+Clicking on Log out button will redirect you to login page again along with a toaster message “Logged Out”
+
+
+Use only React MUI Dialog Boxes, TextField, PasswordFields, Dropdowns & Buttons.
+
+– The overview of every functionality is given in the lab, even if you have any doubt you can surely ask us.
+
+– Time given to you is 2 weeks which is more than enough, so start working now, or it will be hectic for you to complete all this in a short time if you start late

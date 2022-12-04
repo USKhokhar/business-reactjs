@@ -1,0 +1,15 @@
+nav {
+    width: 25vw;
+    height: 100vh;
+    padding: 15px;
+    position: fixed;
+    display: grid;
+    gap: 10px;
+    background: #fff;
+    border-right: 1px solid black;
+}
+
+h1 {
+    text-align: center;
+    font: normal 400 24px/32px sans-serif;
+}
