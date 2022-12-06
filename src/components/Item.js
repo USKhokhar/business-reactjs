@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, CardMedia, CardContent, Typography, CardActions, Button } from '@mui/material'
 
-function Item({title, subTitle, image}) {
+function Item({title, subTitle, image, btn, fillBtn}) {
   return (
     <Card sx={{ maxWidth: 245 }}>
       <CardMedia
@@ -19,8 +19,8 @@ function Item({title, subTitle, image}) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" variant='outlined'>Add To Wishlist</Button>
-        <Button size="small" variant='contained'>Buy Now</Button>
+        <Button size="small" variant='outlined'>{btn}</Button>
+        <Button size="small" variant='contained'>{fillBtn}</Button>
       </CardActions>
     </Card>
   )

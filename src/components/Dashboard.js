@@ -23,7 +23,7 @@ function Dashboard() {
     <>
         <Sidebar />
         <main>
-            <h1>Where the world shops!</h1>
+            <h1>Dashboard</h1>
             <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} style={{
           padding: '25px',
           gap: '10px',
@@ -37,6 +37,8 @@ function Dashboard() {
                     title={title}
                     image={image}
                     subTitle={price}
+                    btn='Add To Wishlist'
+                    fillBtn='Buy Now'
                     />
                   )
                 })
