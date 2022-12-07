@@ -36,7 +36,6 @@ export const Login = () => {
       theme: "dark",
     }
     )
-    console.log(toast('welcome'))
     console.log([inputData])
     console.log(JSON.stringify([inputData.userName]))
   }
@@ -44,11 +43,11 @@ export const Login = () => {
 
   return (
     <section>
-      <pre>
+      {/* <pre>
         Username: {name}
         <br/>
         Password: {pass}
-      </pre>
+      </pre> */}
       <h1>Login Page</h1>
       <form onSubmit = {handleSubmit}>
         <FormControl>

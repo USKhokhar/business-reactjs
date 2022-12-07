@@ -17,17 +17,11 @@ h1 {
 /* #product-menu {
     margin: auto;
 }
-
 .option {
     padding: 4px 10px;
     margin: auto;
 } */
 
-#product-menu {
-    border: 0.3px solid #9898f5;
-    border-radius: 2px;
-}
-
-.option {
-    font: normal 400 12px/15px sans-serif;
+.list-el {
+    display: none;
 }

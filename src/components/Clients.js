@@ -27,7 +27,7 @@ function Clients() {
         }}>
              {
               clientData.map((props) => {
-                const {first_name, last_name, email, avatar, btn, fillBtn} = props;
+                const {first_name, last_name, email, avatar} = props;
 
                 return (
                   <Item 
