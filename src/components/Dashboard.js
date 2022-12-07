@@ -10,7 +10,7 @@ function Dashboard() {
   const [data, setData] = useState([])
 
   const api = async () => {
-    const response = await axios.get('https://fakestoreapi.com/products')
+    const response = await axios.get('https://api.escuelajs.co/api/v1/products')
     setData(response.data)
   } 
 
@@ -31,12 +31,12 @@ function Dashboard() {
         }}>
               {
               data.map((items) => {
-                const {title, image, price} = items;
+                const {title, images, price} = items;
                   return(
                     <Item 
                     title={title}
-                    image={image}
-                    subTitle={price}
+                    image={images}
+                    subTitle={ '$ '+price}
                     btn='Add To Wishlist'
                     fillBtn='Buy Now'
                     />
