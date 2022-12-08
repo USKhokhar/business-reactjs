@@ -1,0 +1,13 @@
+.rel-full-lay {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: #58585838;
+}
+
+.center-lay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

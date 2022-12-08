@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { FormControl, TextField, Button } from '@mui/material'
-// import './Login.css'
 import ForgotPass from './ForgotPass'
 import { useNavigate } from 'react-router-dom'
-import {ToastContainer, toast} from 'react-toastify'
+import { ToastContainer, toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+// import './Login.css'
+import './Home.css'
 
 
 export const Login = () => {
@@ -40,17 +41,17 @@ export const Login = () => {
     console.log(JSON.stringify([inputData.userName]))
   }
 
+  const formStyle = {
+    gap: '10px',
+    width: '360px',
+    padding: '10px 15px'
+  }
 
   return (
-    <section>
-      {/* <pre>
-        Username: {name}
-        <br/>
-        Password: {pass}
-      </pre> */}
+    <section className='rel-full-lay'>
       <h1>Login Page</h1>
-      <form onSubmit = {handleSubmit}>
-        <FormControl>
+      <form onSubmit = {handleSubmit} className='center-lay'>
+        <FormControl style={formStyle}>
           <TextField id='username' label='Username' placeholder='Enter Username' required
           value={name}
           onChange = {
@@ -74,6 +75,8 @@ export const Login = () => {
           <Button variant= 'contained' type='submit'>LOG IN</Button>
         </FormControl>
       </form>
+
+      {/* <ToastContainer /> */}
 
     </section>
   )
