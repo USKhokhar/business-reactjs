@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Sidebar from './Sidebar'
-import { Grid } from '@mui/material'
+import { Grid, CardActions, Button, Card } from '@mui/material'
 import Item from './Item'
 
 function Products(props) {
@@ -36,13 +36,19 @@ function Products(props) {
               {
               data.map((items) => {
                   return(
-                    <Item 
-                    title={items.title}
-                    image={items.image}
-                    subTitle={ '₹ '+items.price}
-                    btn='Add To Wishlist'
-                    fillBtn='Buy Now'
-                    />
+                    <>
+                      <Card sx={{maxWidth: 245}}>
+                      <Item 
+                      title={items.title}
+                      image={items.image}
+                      subTitle={ '₹ '+items.price}
+                      />        
+                      <CardActions>
+                        <Button size="small" variant='outlined' onClick={items.wishlistHandler} value={items.id}>Add To Whislist</Button>
+                        <Button size="small" variant='contained'>Buy Now</Button>
+                      </CardActions>
+                    </Card>
+                    </>
                   )
                 })
               }

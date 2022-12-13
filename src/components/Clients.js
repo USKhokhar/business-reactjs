@@ -1,19 +1,20 @@
-import { Grid } from '@mui/material';
-import React from 'react'
+import { Card, CardActions, Grid, Button } from '@mui/material';
+import axios from 'axios';
+import React,{useState, useEffect} from 'react'
 import Item from './Item';
 import Sidebar from './Sidebar'
 
 function Clients() {
 
-  const clientData = [
-    {"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},
-    {"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg"},
-    {"id":3,"email":"emma.wong@reqres.in","first_name":"Emma","last_name":"Wong","avatar":"https://reqres.in/img/faces/3-image.jpg"},
-    {"id":4,"email":"eve.holt@reqres.in","first_name":"Eve","last_name":"Holt","avatar":"https://reqres.in/img/faces/4-image.jpg"},
-    {"id":5,"email":"charles.morris@reqres.in","first_name":"Charles","last_name":"Morris","avatar":"https://reqres.in/img/faces/5-image.jpg"},
-    {"id":6,"email":"tracey.ramos@reqres.in","first_name":"Tracey","last_name":"Ramos","avatar":"https://reqres.in/img/faces/6-image.jpg"}
-]
+  const [client, setClient] = useState()
 
+  useEffect(() =>{
+    axios.get('https://reqres.in/api/users?page=1')
+          .then((res) => {
+            setClient(res.data)
+          })
+  }, [])
+  
   return (
     <div>
         <Sidebar />
@@ -26,17 +27,21 @@ function Clients() {
           margin: 'auto'
         }}>
              {
-              clientData.map((props) => {
+              [...client.data].map((props) => {
                 const {first_name, last_name, email, avatar} = props;
 
                 return (
-                  <Item 
+                  <Card sx={{maxWidth: 245}}>
+                     <Item 
                   title={first_name + ' ' + last_name}
                   image ={avatar}
                   subTitle={email}
-                  btn = 'Know More'
-                  fillBtn='Contact'
                   />
+                    <CardActions>
+                      <Button size="small" variant='outlined'>know more</Button>
+                      <Button size="small" variant='contained'>contact</Button>
+                    </CardActions>
+                  </Card>
                 )
               })
             }

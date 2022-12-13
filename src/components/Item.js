@@ -1,9 +1,9 @@
 import React from 'react'
-import { Card, CardMedia, CardContent, Typography, CardActions, Button } from '@mui/material'
+import { Card, CardMedia, CardContent, Typography} from '@mui/material'
 
-function Item({title, subTitle, image, btn, fillBtn}) {
+function Item({title, subTitle, image}) {
   return (
-    <Card sx={{ maxWidth: 245 }}>
+     <>
       <CardMedia
         component="img"
         height="140"
@@ -18,11 +18,7 @@ function Item({title, subTitle, image, btn, fillBtn}) {
           {subTitle}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small" variant='outlined'>{btn}</Button>
-        <Button size="small" variant='contained'>{fillBtn}</Button>
-      </CardActions>
-    </Card>
+     </>
   )
 }
 

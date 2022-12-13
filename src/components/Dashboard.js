@@ -3,20 +3,30 @@ import Sidebar from './Sidebar'
 import Item from './Item'
 import './dashboard.css'
 import axios from 'axios'
-import { Grid } from '@mui/material'
+import { Grid, Button, CardActions, Card } from '@mui/material'
 
 function Dashboard() {
 
-  const [data, setData] = useState([])
+  const [prod, setProd] = useState([])
 
   const api = async () => {
     const response = await axios.get('https://fakestoreapi.com/products')
-    setData(response.data)
-  } 
+    setProd(response.data)
+  }
 
   useEffect(() => {
     api()
   }, []);
+
+  let wishArray = []
+  
+  const wishlistHandler = (e) => {
+    console.log(e.target.value);
+    wishArray.push(e.target.value)
+    console.log(wishArray)
+    localStorage.setItem('list', JSON.stringify(wishArray))
+    console.log(localStorage.getItem('list'))
+  }
 
   return (
     <>
@@ -29,16 +39,21 @@ function Dashboard() {
           margin: 'auto'
         }}>
               {
-              data.map((items) => {
-                const {title, image, price} = items;
-                  return(
-                    <Item 
-                    title={title}
-                    image={image}
-                    subTitle={ '₹ '+price}
-                    btn='Add To Wishlist'
-                    fillBtn='Buy Now'
-                    />
+              prod.map((items) => {
+                const {title, image, price, id} = items;
+
+                return(
+                    <Card sx={{maxWidth: 245}} key={id}>
+                      <Item 
+                      title={title}
+                      image={image}
+                      subTitle={ '₹ '+price}
+                      />        
+                      <CardActions>
+                        <Button size="small" variant='outlined' onClick={wishlistHandler} value={id}>Add To Whislist</Button>
+                        <Button size="small" variant='contained'>Buy Now</Button>
+                      </CardActions>
+                    </Card>
                   )
                 })
               }
