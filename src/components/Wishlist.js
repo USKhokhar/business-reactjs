@@ -17,6 +17,10 @@ function Wishlist() {
     getWish()
   }, [])
 
+  // const removeHandle = (e) => {
+  //   console.log(e.target.value)
+  //   localStorage.removeItem(e.target.value)
+  // }
 
   // const wishArray = JSON.parse(localStorage.getItem('list'))
   // // console.log(wishArray);
@@ -24,7 +28,7 @@ function Wishlist() {
   // console.log(wishArray)
   // console.log(Array(localStorage.getItem('list')))
   const wishArray = JSON.parse((localStorage.getItem('list')))
-  console.log(wishArray);
+  // console.log(wishArray);
   
 
   // console.log(wish[0].id);
@@ -55,10 +59,14 @@ function Wishlist() {
                           image={item.image}
                           subTitle={ '₹ '+item.price}
                           />
+                          <CardActions>
+                            <Button variant='outlined' value={item.id} /*onClick={removeHandle}*/>remove</Button>
+                          </CardActions>
                         </Card>
                       )
-                    } 
+                    }
                   })
+
                 }
               </Grid>
             </>

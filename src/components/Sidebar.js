@@ -47,6 +47,7 @@ function Sidebar() {
   }
 
 
+
   return (
     <nav>
         <h1>BUSINESS NAME</h1>
@@ -66,7 +67,13 @@ function Sidebar() {
             <Button variant='outlined' onClick={() => navigate('/Wishlist')}>Wishlist</Button>
             <Button variant='outlined' onClick={() => navigate('/AboutUs')}>About Us</Button>
             <Button variant='outlined' onClick = {() => navigate('/Clients')}>Clients</Button>
-            <Button variant='contained' onClick={() => navigate('/Login')}>LOG OUT</Button>
+            <Button variant='contained' 
+                    onClick={() => {
+                      navigate('/Login')
+                      localStorage.clear()
+                      }
+                    }>
+                      LOG OUT</Button>
         </Stack>
         
         <Grid container style={{margin: 'auto'}}>

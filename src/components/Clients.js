@@ -6,14 +6,16 @@ import Sidebar from './Sidebar'
 
 function Clients() {
 
-  const [client, setClient] = useState()
+  const [clients, setClients] = useState(null);
 
-  useEffect(() =>{
-    axios.get('https://reqres.in/api/users?page=1')
-          .then((res) => {
-            setClient(res.data)
-          })
-  }, [])
+  useEffect(() => {
+    axios.get("https://reqres.in/api/users?page=1")
+    .then((res) => {
+      setClients(res.data);
+    });
+  }, []);
+  
+  const clientArr = (clients.data)
   
   return (
     <div>
@@ -26,25 +28,21 @@ function Clients() {
           gap: '10px',
           margin: 'auto'
         }}>
-             {
-              [...client.data].map((props) => {
-                const {first_name, last_name, email, avatar} = props;
-
-                return (
-                  <Card sx={{maxWidth: 245}}>
-                     <Item 
+          {
+            clientArr.map((item) => {
+              const {first_name, last_name, avatar, email} = item
+              console.log(1);
+              return (
+                <Card>
+                  <Item 
                   title={first_name + ' ' + last_name}
-                  image ={avatar}
                   subTitle={email}
+                  image={avatar}
                   />
-                    <CardActions>
-                      <Button size="small" variant='outlined'>know more</Button>
-                      <Button size="small" variant='contained'>contact</Button>
-                    </CardActions>
-                  </Card>
-                )
-              })
-            }
+                </Card>
+              )
+            })
+          }
            </Grid>
 
         </main>
